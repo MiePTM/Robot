@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="default">
+    <!-- Load physics engine and settings -->
+    <physics type="ode"/>
+
+    <!-- Add a ground plane -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <!-- Add a sun light source -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <!-- Define a simple cube model -->
+    <model name="my_cube">
+      <static>false</static>
+      <pose>0 0 0.5 0 0 0</pose> <!-- x y z roll pitch yaw -->
+
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>1 1 1</size> <!-- x y z dimensions -->
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>1 1 1</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0 1 0 1</ambient> <!-- green color -->
+            <diffuse>0 1 0 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+  </world>
+</sdf>

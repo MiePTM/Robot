@@ -1,0 +1,118 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="default">
+
+    <!-- Include Ground Plane -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <!-- Include Sun -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <!-- Room (for visualization purposes, just a floor box) -->
+    <model name="room_floor">
+      <static>true</static>
+      <link name="floor_link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>8 5 0.01</size> <!-- 8m x 5m room -->
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>8 5 0.01</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>0 0 0.005 0 0 0</pose> <!-- Slightly above ground -->
+    </model>
+
+    <!-- Anchor at Front-Left Corner -->
+    <model name="anchor_1">
+      <static>true</static>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.1</radius>
+              <length>1</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>1 0 0 1</ambient>
+          </material>
+        </visual>
+      </link>
+      <pose>-4 2.5 0.5 0 0 0</pose>
+    </model>
+
+    <!-- Anchor at Front-Right Corner -->
+    <model name="anchor_2">
+      <static>true</static>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.1</radius>
+              <length>1</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0 1 0 1</ambient>
+          </material>
+        </visual>
+      </link>
+      <pose>4 2.5 0.5 0 0 0</pose>
+    </model>
+
+    <!-- Anchor at Rear-Left Corner -->
+    <model name="anchor_3">
+      <static>true</static>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.1</radius>
+              <length>1</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0 0 1 1</ambient>
+          </material>
+        </visual>
+      </link>
+      <pose>-4 -2.5 0.5 0 0 0</pose>
+    </model>
+
+    <!-- Anchor at Rear-Right Corner -->
+    <model name="anchor_4">
+      <static>true</static>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.1</radius>
+              <length>1</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>1 1 0 1</ambient>
+          </material>
+        </visual>
+      </link>
+      <pose>4 -2.5 0.5 0 0 0</pose>
+    </model>
+
+  </world>
+</sdf>
